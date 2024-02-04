@@ -1,3 +1,10 @@
+> [!WARNING]
+> quick and dirty dockerization of daswer123's xtts finetuning webui (because cuda and python wrangling takes a toll), I don't really plan to make this properly anytime soon (or ever), this is more targeted towards me finding these fixes again if I need them; and if anyone else wants to save themselves the trouble, feel free to PR if you want.
+
+
+----
+
+
 # xtts-finetune-webui
 
 This webui is a slightly modified copy of the [official webui](https://github.com/coqui-ai/TTS/pull/3296) for finetune xtts.
