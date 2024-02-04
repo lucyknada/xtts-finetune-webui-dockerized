@@ -1,0 +1,17 @@
+services:
+  xtts:
+    build: .
+    ports:
+      - 5003:5003
+    volumes:
+      - ./:/workspace/xtts
+    # leaving this on purpose here, as it came in clutch plenty times
+    # command: python -c "import torch; print(torch.__version__); print(torch.backends.cudnn.version())"
+    command: bash -c "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/conda/lib/python3.10/site-packages/nvidia/cublas/lib:/opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib CUDA_VISIBLE_DEVICES=0 python xtts_demo.py"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
